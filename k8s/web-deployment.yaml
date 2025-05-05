@@ -31,7 +31,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: LoadBalancer
+  name: deployment-web
 spec:
   selector:
     app: deployment-web
