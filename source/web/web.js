@@ -5,17 +5,18 @@ const axios = require('axios');
 const app = express();
 const path = require('path');
 
-//app.use(bodyParser.json());
+
 
 // Parse URL-encoded form data
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Serve static index.html from "templates" folder
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'templates', 'index.html'));
 });
 
-const STORAGE_SVC_HOST = process.env.STORAGE_SVC; // Kubernetes service name
+const STORAGE_SVC_HOST = process.env.STORAGE_SVC || "storage"; // Kubernetes service name
 
 app.post('/phrase', async (req, res) => {
   const phrase = req.body.phrase;
