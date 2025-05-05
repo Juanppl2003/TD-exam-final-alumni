@@ -31,7 +31,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: loadbalancer-web
+  name: LoadBalancer
 spec:
   selector:
     app: deployment-web
@@ -39,4 +39,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 3000
-  type: loadBalancer
+  type: LoadBalancer
